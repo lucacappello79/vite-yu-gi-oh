@@ -41,7 +41,7 @@ export default {
 <template>
     <main>
         <div class="content">
-            <CardItem v-for="(item, index) in store.cards" :card="card"></CardItem>
+            <CardItem v-for="(item, index) in store.cards" :card="item"></CardItem>
         </div>
 
     </main>

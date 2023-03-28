@@ -27,7 +27,7 @@ export default {
 
 <template>
     <div class="card">
-        <img :src="card.card_images[1].image.url" alt="card image">
+        <img :src="card.card_images[0].image_url" alt="card image">
         <div class="title">
             {{ card.name }}
         </div>
@@ -37,6 +37,14 @@ export default {
 <style lang="scss" scoped>
 .card {
     border: 1px solid black;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
 </style>
 
