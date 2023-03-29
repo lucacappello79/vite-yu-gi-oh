@@ -2,12 +2,12 @@ import { reactive } from 'vue';
 
 export const store = reactive({
 
-    // cards: [],
-    carte: [],
+    cards: [],
+
 
     APIcall: "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0",
 
-    APIquery: "?fname=",
+    APIquery: "https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=",
 
     cardName: "",
 
