@@ -22,7 +22,8 @@ export default {
   methods: {
 
     search() {
-      let apiNewString = this.store.APIcall + this.store.APIquery + this.store.cardName
+      // let apiNewString = this.store.APIcall + this.store.APIquery + this.store.cardName
+      let apiNewString = this.store.APIquery + this.store.cardName;
 
       axios.get(apiNewString).then((res) => {
         console.log(res.data.data);

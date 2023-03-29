@@ -22,8 +22,8 @@ export default {
 
 <template>
     <div class="search">
-        <input v-model="store.cardName" type="text" placeholder="Search card name" @keyup.enter="$emit(searchCardName)">
-        <button @click="$emit(searchCardName)">Search</button>
+        <input v-model="store.cardName" type="text" placeholder="Search card name" @keyup.enter="$emit('searchCardName')">
+        <button @click="$emit('searchCardName')">Search</button>
     </div>
 </template>
 
