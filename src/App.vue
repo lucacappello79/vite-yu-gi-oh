@@ -1,37 +1,43 @@
 <script>
-import { store } from "./store.js"
-import AppMain from "./components/AppMain.vue"
-import AppSearch from "./components/AppSearch.vue"
 import axios from "axios";
+import { store } from "./store.js"
 
+import AppMain from "./components/AppMain.vue"
+// import AppSearch from "./components/AppSearch.vue"
 
 export default {
   data() {
     return {
-
       store,
-
     };
   },
 
   components: {
     AppMain,
-    AppSearch
+    // AppSearch
+  },
+
+  created() {
+
+    axios.get(this.store.APIcall).then((res) => {
+      console.log(res);
+      console.log(res.data.data);
+      this.store.cards = res.data.data;
+    });
   },
 
   methods: {
 
     search() {
-      // let apiNewString = this.store.APIcall + this.store.APIquery + this.store.cardName
+
       let apiNewString = this.store.APIquery + this.store.cardName;
 
       axios.get(apiNewString).then((res) => {
-        console.log(res.data.data);
-
         this.store.cards = res.data.data;
-
       });
+
     },
+
   },
 
 };
@@ -41,16 +47,11 @@ export default {
 <template>
   <div class="container">
 
-    <AppSearch @searchCardName="search"></AppSearch>
-    <AppMain></AppMain>
+    <!-- <AppSearch @searchCardName="search"></AppSearch> -->
+    <AppMain :search="search"></AppMain>
 
   </div>
 </template>
 
 
-<style lang="scss">
-.container {
-
-  background-color: orange;
-}
-</style>
+<style lang="scss"></style>

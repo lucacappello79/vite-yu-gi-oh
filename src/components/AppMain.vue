@@ -1,9 +1,8 @@
 <script>
-import CardItem from "./CardItem.vue";
-
-import axios from "axios";
-
 import { store } from "../store.js";
+
+import CardItem from "./CardItem.vue";
+import AppSearch from "./AppSearch.vue";
 
 export default {
 
@@ -20,29 +19,18 @@ export default {
 
     components: {
 
+        AppSearch,
         CardItem,
 
     },
 
-    created() {
+    props: {
 
-        axios.get(this.store.APIcall).then((res) => {
-            console.log(res);
-            console.log(res.data.data);
+        search: Function,
 
-            this.store.cards = res.data.data;
-        });
-
-        // axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) => {
-        //     console.log(res);
-        //     console.log(res.data.data);
-
-        //     this.store.cards = res.data.data;
+    }
 
 
-        // });
-
-    },
 
 };
 </script>
@@ -50,10 +38,13 @@ export default {
 
 <template>
     <main>
+
         <h1>I wish it were Magic The Gathering</h1>
+
+        <AppSearch @searchCardName="search"></AppSearch>
+
         <div class="content">
             <CardItem v-for="(item, index) in store.cards" :card="item"></CardItem>
-
         </div>
 
     </main>

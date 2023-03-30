@@ -9,13 +9,9 @@ export default {
     data() {
 
         return {
-
             store,
-
         }
-
     },
-
 }
 
 </script>
@@ -27,4 +23,13 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.search {
+    text-align: center;
+    padding: 20px 0 50px;
+
+    input {
+        margin-right: 20px;
+    }
+}
+</style>
